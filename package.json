@@ -36,8 +36,7 @@
     "commit": "git-cz",
     "lint": "eslint . --fix",
     "lint:check": "eslint . --quiet",
-    "release": "bumpp && npm publish",
-    "typecheck": "tsc --noEmit"
+    "release": "bumpp && npm publish"
   },
   "peerDependencies": {
     "stylelint": "^16.16.0"
