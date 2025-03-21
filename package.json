@@ -1,0 +1,85 @@
+{
+  "name": "@fabdeh/stylelint-config",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af",
+  "description": "My personal stylelint config preset",
+  "author": {
+    "name": "Fabien Dehopré",
+    "email": "fabien@dehopre.dev",
+    "url": "https://github.com/FabienDehopre"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabienDehopre/stylelint-config.git"
+  },
+  "bugs": "https://github.com/FabienDehopre/stylelint-config/issues",
+  "keywords": [
+    "stylelint",
+    "stylelint-config",
+    "lint",
+    "formatting"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "is-ci || simple-git-hooks",
+    "commit": "git-cz",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint . --quiet",
+    "release": "bumpp && npm publish",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "stylelint": "^16.16.0"
+  },
+  "dependencies": {
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-order": "^6.0.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cz-commitlint": "^19.8.0",
+    "@fabdeh/eslint-config": "^0.4.0",
+    "bumpp": "^10.1.0",
+    "changelogithub": "^13.13.0",
+    "commitizen": "^4.3.1",
+    "eslint": "^9.22.0",
+    "is-ci": "^4.1.0",
+    "jiti": "^2.4.2",
+    "nano-staged": "^0.8.0",
+    "simple-git-hooks": "^2.11.1",
+    "stylelint": "^16.16.0",
+    "typescript": "^5.8.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@fabdeh/eslint-config",
+      "simple-git-hooks"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm nano-staged",
+    "commit-msg": "pnpm commitlint --edit ${1}"
+  },
+  "nano-staged": {
+    "*": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
+}
