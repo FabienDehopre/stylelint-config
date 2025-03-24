@@ -25,7 +25,9 @@
   },
   "sideEffects": false,
   "files": [
-    "index.js"
+    "index.js",
+    "order.js",
+    "scss.js"
   ],
   "engines": {
     "node": ">=18.18"
